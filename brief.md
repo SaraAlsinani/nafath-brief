@@ -7,9 +7,21 @@ Reliable emergency communications require coordinated decisions across six IT fi
 
 ## Software
 
+Safe methods request essentially read-only behavior: GET, HEAD, OPTIONS, and TRACE. These methods, plus PUT and DELETE, are idempotent: repeating an identical request has the same intended server effect as sending it once. POST is not generally idempotent. After a connection failure, the app can retry an idempotent operation, but should not blindly retry a POST that might create a duplicate emergency report.
+
+Resource: RFC 9110: HTTP Semantics - https://www.rfc-editor.org/rfc/rfc9110.html
+
 ## AI
 
+Overfitting occurs when a congestion model learns training-specific patterns or noise and performs poorly on unseen traffic. Cross-validation repeatedly trains and evaluates the model on separate subsets, revealing whether good training results generalize. A large training-validation performance gap suggests overfitting. Because network measurements are chronological, use time-aware splits that train on earlier observations and validate on later ones, with an untouched final test period.
+
+Resource: Cross-validation: evaluating estimator performance - https://scikit-learn.org/stable/modules/cross_validation.html
+
 ## Mobile
+
+The responder app should read essential cached information from a local database, clearly mark stale data, and show connection status. Store permitted offline updates locally in a persistent queue; never imply that an unsent emergency message was delivered. When connectivity returns, synchronize through background work with controlled retries. Use record versions and a defined conflict-resolution policy so competing updates are reconciled rather than silently overwritten.
+
+Resource: Build an offline-first app - https://developer.android.com/topic/architecture/data-layer/offline-first
 
 ## Networking
 
