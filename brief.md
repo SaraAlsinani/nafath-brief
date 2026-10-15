@@ -25,9 +25,21 @@ Resource: Build an offline-first app - https://developer.android.com/topic/archi
 
 ## Networking
 
+5G network slicing creates logical networks tailored to different services, with appropriate isolation, resources, and topology. For emergency responders, I would specify a dedicated slice with capacity and latency targets, priority policies, and continuous performance monitoring. This could protect critical communications during competing demand. However, logical separation alone cannot guarantee survival of shared physical infrastructure failures; redundancy and outage testing would remain necessary design requirements.
+
+Resource: 3GPP Network Slicing - https://datatracker.ietf.org/meeting/99/materials/slides-99-netslicing-georg-mayer-3gpp-network-slicing-04
+
 ## Cybersecurity
 
+Using NIST's current lifecycle, preparation is supported by Govern, Identify, and Protect: assign responsibilities, inventory assets, and establish safeguards. Detect finds and analyzes attack indicators. Respond coordinates communication, contains affected systems, and removes the threat. Recover restores trusted services and verifies normal operation. For this operator, isolate compromised components while preserving emergency traffic where possible. Feed lessons into continuous improvement throughout the incident, not only afterward.
+
+Resource: NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf
+
 ## Data
+
+A star schema connects a central fact table directly to denormalized dimensions. A snowflake schema normalizes dimensions into additional related tables, reducing repeated attributes but adding joins. For daily regional usage reports, I would choose a star schema with one fact row per region per day, linked to Date and Region dimensions. Measures could include session count and transferred bytes, providing a clear reporting grain and straightforward aggregation.
+
+Resource: Understand star schema and the importance for Power BI - https://learn.microsoft.com/en-us/power-bi/guidance/star-schema
 
 ## Misconception in My Track
 
