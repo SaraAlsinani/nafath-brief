@@ -43,4 +43,8 @@ Resource: Understand star schema and the importance for Power BI - https://learn
 
 ## Misconception in My Track
 
+A common misconception is that an idempotent HTTP method is also safe and cannot change server data. These properties describe different things. Safety concerns whether the requested operation is essentially read-only; idempotency concerns the intended effect of repeating an identical request. PUT and DELETE are idempotent, yet they can replace or remove data. RFC 9110, Section 9.2.2, "Idempotent Methods," explicitly includes PUT and DELETE alongside safe methods. For the emergency service, this means retries can preserve the intended effect without making the underlying operation harmless or eliminating the need for authorization.
+
 ## Open Question
+
+How should the operator implement duplicate detection for queued emergency reports sent through POST, and how long should it retain request identifiers to prevent duplicate reports after extended disconnections?
